@@ -1,3 +1,3 @@
-#http://denis-zavgorodny.github.io/regex-slides/
+#https://denis-zavgorodny.github.io/regression_css_testing/
 
-Презентация для NodeSchool
+Презентация для ChernivtsiJS #1
