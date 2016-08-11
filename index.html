@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Тестируем CSS регрессии с BackstopJS</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="styles/screen.css">
+</head>
+<body class="list">
+	<!--
+		Debug class on <body> enables
+		cyan grid on slides
+		-->
+	<header class="caption">
+		<h1>Тестируем CSS регрессии с BackstopJS</h1>
+		<p>Денис Завгородний</p>
+	</header>
+    
+    <section class="slide shout"><div>
+		<h2>ошибки?</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Я же это ПРАВИЛ</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<center style="margin: -5% 0 0 0;">
+			<img src="images/comic.jpg" width="100%">
+		</center>
+	</div></section>
+
+    <section class="slide"><div>
+		<h2>Что же делать?</h2>
+		<ul>
+			<li>клиент сам все увидит и укажет на ошибки</li>
+			<li>менеджер протестит</li>
+			<li>прокликаем все, найдем все ошибки</li>
+			<li>у нас же есть QA инженеры</li>
+			<li>...</li>
+		</ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Тестируют все</h2>
+		<table>
+			<tr>
+				<td colspan="2" style="font-size:1px;">
+					&nbsp;
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h3>Функциональное тестирование</h3>
+					<ul>
+						<li>unit</li>
+						<li>интеграционное</li>
+						<li>security</li>
+						<li>и т.д.</li>
+					</ul>
+				</td>
+				<td>
+					<h3>Не функциональное</h3>
+					<ul>
+						<li>нагрузочное</li>
+						<li>usability</li>
+						<li>и т.д.</li>
+					</ul>
+						
+					<h3>Тестирование изменений</h3>
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+    
+
+	<section class="slide shout"><div>
+		<h2>Тестирование изменений</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>во frontend</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>А в чем проблема?</h2>
+		<ul>
+			<li>множество браузеров</li>
+			<li>множество платформ</li>
+			<li>множество разрешений экранов и размеров viewport</li>
+			<li>разные виды ориентаций экранов</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>зоопарк</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>сейчас<br />не об этом</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Так в чем же проблема?</h2>
+		<ul>
+			<li>в приложении множество экранов</li>
+			<li>на сайте множество страниц и состояний</li>
+			<li>стили "протекают"</li>
+			<li>я вот тут чуть-чуть подправил css (с) Бэкендер</li>
+			<li>большая кодовая база</li>
+			<li>большая команда и новички</li>
+			<li>постоянные изменения в коде</li>
+			<li>...</li>
+		</ul>
+	</div></section>
+
+	
+
+	<section class="slide shout"><div>
+		<h2>Вносить изменения в код</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>И ничего не сломать</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Это <strong>НЕ</strong> кроссбраузерные тесты</h2>
+	</div></section>
+
+
+	<section class="slide"><div>
+		<h2>Ряд допущений</h2>
+		<ul>
+			<li>это работало в прошлой итерации</li>
+			<li>это оттестировано на кроссбраузерность</li>
+			<li>нам достаточно одного браузера</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Как тестировать</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Визуально</h2>
+		<ol>
+			<li>смотрим на эталон</li>
+			<li>смотрим на тестируемый объект</li>
+			<li>находим отличия</li>
+			<li>... повторяем</li>
+		</ol>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Автоматизируем</h2>
+		<ol>
+			<li>делаем эталонный скриншот</li>
+			<li>делаем скриншот текущего состояния приложения (сайта)</li>
+			<li>находим отличия</li>
+			<li>... повторяем</li>
+		</ol>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что нужно</h2>
+		<ol>
+			<li>браузер для "исполнения" кода</li>
+			<li>софт для снятия скриншотов</li>
+			<li>софт для вычисления различия между скриншотами</li>
+			<li>среда и язык для написания сценариев тестов</li>
+		</ol>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Selenium</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>Нет ;)</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Что нужно</h2>
+		<ol>
+			<li>Phantom JS (Slimer JS)</li>
+			<li>Resemble JS</li>
+			<li>Casper JS</li>
+			<li>SomeName JS</li>
+		</ol>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>
+			BackstopJS<br />
+			<span style="font-size: 4vw;">1.3.6</span>
+		</h2>
+
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Возможости</h2>
+		<ul>
+			<li>захват изображения со страницы целиком</li>
+			<li>захват изображения по селектору</li>
+			<li>удаление или скрытие "ненужных" элементов со страницы</li>
+			<li>различные виды отчетов (HTML, CLI и др.)</li>
+			<li>поддерживается два движка для рендера PhantomJS и SlimerJS</li>
+			<li>исполнение js на целевой странице</li>
+			<li>исполнение сценариев CasperJS</li>
+		</ul>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>
+			Конфигурация
+		</h2>
+
+	</div></section>
+
+	<section class="slide"><div>
+		<pre>
+	    <code>{</code>
+	    <code>    "<span style="color: red;">viewports</span>": [],</code>
+	    <code>    "<span style="color: red;">scenarios</span>": [],</code>
+	    <code>    "paths": {...},</code>
+	    <code>    "engine": "phantomjs",</code>
+	    <code>    "report": ["browser", "CLI"],</code>
+	    <code>    "debug": false,</code>
+	    <code>    "port": 3001</code>
+	    <code>}</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Описание viewports</h2>
+		<pre>
+			<code>"viewports": [</code>
+			<code>    {</code>
+			<code>        "name": "desktop",</code>
+			<code>        "width": 1024,</code>
+			<code>        "height": 768</code>
+			<code>    }</code>
+			<code>]</code>
+		</pre>
+	</div></section>
+
+    <section class="slide"><div>
+		<h2>Описание сценариев</h2>
+		<pre>
+			<code>{</code>
+			<code>    "label": "catalog",</code>
+			<code>    "url": "http://url.com/index.html",</code>
+			<code>    "hideSelectors": [],</code>
+			<code>    "removeSelectors": [],</code>
+			<code>    "selectors": [".logo"],</code>
+			<code>    "delay": 500,</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Описание сценариев</h2>
+		<pre>
+			<code>    "readyEvent": "app_ready",</code>
+			<code>    "misMatchThreshold" : 0.2,</code>
+			<code>    "onBeforeScript": "onBefore.js",</code>
+			<code>    "onReadyScript": "onReady.js",</code>
+			<code>    <span style="color: #ababab;">"onBeforeSelector": "onSelector.js"</span></code>
+			<code>}</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>readyEvent</h2>
+		<table>
+			<tr>
+				<td>Сайт</td>
+				<td>Backstop JS</td>
+			</tr>
+			<tr>
+				<td>
+					<pre>
+						<code>window.onload = function() {</code>
+						<code>    setTimeout(function(){ </code>
+						<code>        console.log('app_ready');</code>
+						<code>    }, 2000)</code>
+						<code>}</code>
+					</pre>
+				</td>
+				<td valign="middle" style="vertical-align: middle;">
+					2s WAIT
+				</td>
+			</tr>
+		</table>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>onBeforeScript, onReadyScript</h2>
+		
+		<pre>
+			<code>module.exports = function(casper, scenario, vp) {</code>
+			<code>    // casper – Casper instance</code>
+			<code>    // scenario object</code>
+			<code>    // vp – viewport obj</code>
+			<code>};</code>
+		</pre>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Доступ к CasperJS API</h2>
+		<pre>
+			<code>module.exports = function(casper, scenario, vp) {</code>
+			<code>    casper.then(function(){</code>
+			<code>    	casper.userAgent('Mozilla/5.0 (iPhone; CPU...');</code>
+			<code>    });	</code>
+			<code>    casper.thenOpen(scenario.url, function() {</code>
+			<code>        alert('Im inside you page');</code>
+			<code>    }</code>
+			<code>};</code>
+		</pre>
+	</div></section>
+
+
+	<section class="slide shout"><div>
+		<h2>
+			Отчеты
+		</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<center style="margin: -5% 0 0 0;">
+			<img src="images/browserReport.png" width="100%">
+		</center>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<center style="margin: -20% 0 0 0;">
+			<img src="images/CLI_report.png" width="100%">
+		</center>
+	</div></section>
+
+	<section class="slide shout"><div>
+		<h2>CLI Exit code</h2>
+	</div></section>
+
+
+
+	
+
+	
+
+
+	<section class="slide"><div>
+		<h2>Спасибо!</h2>
+		<h3>Завгородний Денис</h3>
+		<p>Найти можно в фейсбучике
+			<a href="https://www.facebook.com/denis.zavgorodny">https://www.facebook.com/denis.zavgorodny</a>
+		</p>
+	</div></section>
+
+
+
+
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="shower-core/shower.min.js"></script>
+	<!-- Copyright © 2013 Yours Truly, Famous Inc. -->
+
+
+<script type='text/javascript' id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.2.1.js'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+
+	
+</body>
+</html>
