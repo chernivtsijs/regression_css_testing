@@ -18,6 +18,10 @@
 	</header>
     
     <section class="slide shout"><div>
+		<h2 style="font-size: 120px; line-height: 1.3;">Тестируем <br />CSS регрессии<br />с BackstopJS</h2>
+	</div></section>
+
+	<section class="slide shout"><div>
 		<h2>ошибки?</h2>
 	</div></section>
 
@@ -285,8 +289,8 @@
 						<code>window.onload = function() {</code>
 						<code>    setTimeout(function(){ </code>
 						<code>        console.log('app_ready');</code>
-						<code>    }, 2000)</code>
-						<code>}</code>
+						<code>    }, 2000);</code>
+						<code>};</code>
 					</pre>
 				</td>
 				<td valign="middle" style="vertical-align: middle;">
@@ -322,6 +326,21 @@
 		</pre>
 	</div></section>
 
+	<section class="slide"><div>
+		<h2>Взаимодействие со страницей</h2>
+		<pre>
+			<code>module.exports = function(casper, scenario, vp) {</code>
+			<code>    casper.click('.login-button-js');</code>
+			<code>};</code>
+		</pre>
+
+		<pre>
+			<code>module.exports = function(casper, scenario, vp) {</code>
+			<code>    casper.mouseEvent('mouseenter', '.logo');</code>
+			<code>};</code>
+		</pre>
+	</div></section>
+
 
 	<section class="slide shout"><div>
 		<h2>
@@ -346,6 +365,23 @@
 	</div></section>
 
 
+	<section class="slide shout"><div>
+		<h2>Аналоги</h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Чем еще можно тестировать?</h2>
+		<ul>
+			<li>SeleniumIO for NodeJS + Selenium Grid</li>
+			<li>PhantomCSS</li>
+			<li>Gemini от Яндекс</li>
+			<li>Ваш велосипед с использованием PhantomJS</li>
+			<li>saucelabs.com</li>
+			<li>и т.д.</li>
+		</ul>
+	</div></section>
+
+
 
 	
 
@@ -353,11 +389,22 @@
 
 
 	<section class="slide"><div>
-		<h2>Спасибо!</h2>
-		<h3>Завгородний Денис</h3>
-		<p>Найти можно в фейсбучике
-			<a href="https://www.facebook.com/denis.zavgorodny">https://www.facebook.com/denis.zavgorodny</a>
-		</p>
+		<table>
+			<tr>
+				<td width="50%" valign="top" style="vertical-align: top; border: 0; background: none;">
+					<img src="images/qr-code.gif" width="80%">
+				</td>
+				<td width="50%" valign="top" style="vertical-align: top; border: 0; background: none;">
+				    <h2 style="margin-top: 0; padding-top: 0;">Спасибо!</h2>
+					<h3>Завгородний Денис</h3>
+					<p>Найти можно в фейсбучике
+						<a href="https://www.facebook.com/denis.zavgorodny">https://www.facebook.com/denis.zavgorodny</a>
+					</p>
+				</td>
+			</tr>
+		</table>
+		
+		
 	</div></section>
 
 
